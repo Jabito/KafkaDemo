@@ -10,11 +10,6 @@ import java.util.UUID
 @RestController
 class MainController(val kafkaService: KafkaService){
 
-    @GetMapping("/test")
-    fun test(): String {
-        return "Running."
-    }
-
     @PostMapping("/post")
     fun post(): String {
         val topic = Topics.MAIN_TOPIC

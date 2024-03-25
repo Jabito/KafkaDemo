@@ -1,7 +1,7 @@
 FROM amazoncorretto:17.0.7-alpine
 
-COPY target/*.jar kafka-producer.jar
+COPY target/*.jar spring-boot-admin.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "kafka-producer.jar"]
+ENTRYPOINT ["java", "-jar", "spring-boot-admin.jar"]

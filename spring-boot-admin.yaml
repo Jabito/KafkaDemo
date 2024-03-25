@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafka-producer
+  name: spring-boot-admin
 spec:
   selector:
     matchLabels:
-      app: kafka-producer
+      app: spring-boot-admin
   replicas: 1
   template:
     metadata:
       labels:
-        app: kafka-producer
+        app: spring-boot-admin
     spec:
       containers:
-        - name: kafka-producer
-          image: kafka-demo/kafka-producer:latest
+        - name: spring-boot-admin
+          image: kafka-demo/spring-boot-admin:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -23,13 +23,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafka-producer-svc
+  name: spring-boot-admin-svc
 spec:
   selector:
-    app: kafka-producer
+    app: spring-boot-admin
   ports:
     - protocol: "TCP"
       port: 8080
       targetPort: 8080
-      nodePort: 30001
+      nodePort: 30100
   type: NodePort
