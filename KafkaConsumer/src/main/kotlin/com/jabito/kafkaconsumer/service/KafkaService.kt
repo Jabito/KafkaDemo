@@ -1,11 +1,12 @@
 package com.jabito.kafkaconsumer.service
 
+import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Service
 
 @Service
 class KafkaService() {
-
-    fun processMessage(topic: String, msg: String){
-
+    @KafkaListener(topics = ["my-topic"], groupId = "foo")
+    fun listenGroupFoo(message: String) {
+        println("Received Message: $message")
     }
 }
