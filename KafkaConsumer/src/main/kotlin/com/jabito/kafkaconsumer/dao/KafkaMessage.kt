@@ -1,7 +1,8 @@
-package com.jabito.kafkaproducer.dao
+package com.jabito.kafkaconsumer.dao
+
 
 data class KafkaMessage(
     val op: String,
-    val message: Any,
+    val message: Transaction,
     val tz: String
 )

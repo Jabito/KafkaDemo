@@ -32,3 +32,16 @@
 # Test
 1. Listen to topic `kubectl logs -f --tail=50 kafka-consumer-{pod_id}`
 2. Test Post `curl --location --request POST 'localhost:{NodePort}/post'` Post Message
+
+# MySQL
+1. `kubectl apply -f mysql-secret.yaml`
+2. `kubectl apply -f mysql-storage.yaml`
+3. `kubectl apply -f mysql-deployment.yaml`
+4. `kubectl exec --stdin --tty mysql-{pod_id} -- /bin/bash`
+5. `mysql -p`
+6. Use password from mysql-secret.yaml
+
+## Create new user
+1. `create database demo;`
+2. `create user 'demo_user'@'%' identified by 'dem0UserPassword!';`
+2. `grant all on demo.* to 'demo_user'@'%';`

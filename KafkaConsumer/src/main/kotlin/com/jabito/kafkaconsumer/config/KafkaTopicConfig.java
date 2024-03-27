@@ -16,11 +16,14 @@ public class KafkaTopicConfig {
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    @Value(value = "${message.topic.name}")
-    private String topicName;
+    @Value(value = "${kafka.topic.primary}")
+    private String primaryTopic;
 
-    @Value(value = "${other.topic.name}")
-    private String subTopicName;
+    @Value(value = "${kafka.topic.secondary}")
+    private String secondaryTopic;
+
+    @Value(value = "${kafka.topic.other}")
+    private String otherTopic;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
@@ -31,11 +34,16 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic mainTopic() {
-        return new NewTopic(topicName, 1, (short) 1);
+        return new NewTopic(primaryTopic, 1, (short) 1);
     }
 
     @Bean
     public NewTopic subTopic() {
-        return new NewTopic(subTopicName, 1, (short) 1);
+        return new NewTopic(secondaryTopic, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic otherTopic() {
+        return new NewTopic(otherTopic, 1, (short) 1);
     }
 }
