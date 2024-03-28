@@ -25,7 +25,7 @@ class KafkaService(@Autowired val kafkaTemplate: KafkaTemplate<String, String>) 
                 UUID.randomUUID().toString(),
                 getRandomPrice().toString(),
                 LocalDateTime.now().minusMinutes(5).toString(),
-                req.uid)
+                req.uid + "-$i")
             val gson = Gson()
             kafkaTemplate.send(req.topicName, gson.toJson(KafkaMessage(OpType.INSERT, message, LocalDateTime.now().toString())))
         }
