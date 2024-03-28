@@ -34,16 +34,16 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic mainTopic() {
-        return new NewTopic(primaryTopic, 1, (short) 1);
+        return new NewTopic(primaryTopic, 3, (short) 1);
     }
 
     @Bean
     public NewTopic subTopic() {
-        return new NewTopic(secondaryTopic, 1, (short) 1);
+        return new NewTopic(secondaryTopic, 3, (short) 1);
     }
 
     @Bean
     public NewTopic otherTopic() {
-        return new NewTopic(otherTopic, 1, (short) 1);
+        return new NewTopic(otherTopic, 3, (short) 1);
     }
 }

@@ -5,7 +5,8 @@
    1. Watch Status -`kubectl get pod -n kafka --watch`
    2. Check logs - `kubectl logs deployment/strimzi-cluster-operator -n kafka -f`
 3. Create single persistent kafka broker - `kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka`
-   1. `kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n kafka` 
+   1. For multiple replicas `kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent.yaml -n kafka` 
+   2. `kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n kafka` 
 
 
 # Test Produce Message (Demo service)
