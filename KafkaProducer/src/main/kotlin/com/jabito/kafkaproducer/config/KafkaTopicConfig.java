@@ -25,6 +25,9 @@ public class KafkaTopicConfig {
     @Value(value = "${kafka.topic.other}")
     private String otherTopic;
 
+    @Value(value = "${kafka.topic.partitions.count:1}")
+    private int partitionCount;
+
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
@@ -34,16 +37,16 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic mainTopic() {
-        return new NewTopic(primaryTopic, 3, (short) 1);
+        return new NewTopic(primaryTopic, partitionCount, (short) 1);
     }
 
     @Bean
     public NewTopic subTopic() {
-        return new NewTopic(secondaryTopic, 3, (short) 1);
+        return new NewTopic(secondaryTopic, partitionCount, (short) 1);
     }
 
     @Bean
     public NewTopic otherTopic() {
-        return new NewTopic(otherTopic, 3, (short) 1);
+        return new NewTopic(otherTopic, partitionCount, (short) 1);
     }
 }
