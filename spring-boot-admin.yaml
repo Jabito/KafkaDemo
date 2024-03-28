@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-admin
-          image: kafka-demo/spring-boot-admin:latest
+          image: jabito/spring-boot-admin:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
