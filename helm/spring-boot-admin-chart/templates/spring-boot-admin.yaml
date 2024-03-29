@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: spring-boot-admin
+      app: {{ .Release.Name }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        app: spring-boot-admin
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: spring-boot-admin
+        - name: {{ .Release.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
