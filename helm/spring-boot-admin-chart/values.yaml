@@ -1,0 +1,11 @@
+replicaCount: 1
+image:
+  repository: jabito/spring-boot-admin
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  name: spring-boot-admin-svc
+  type: NodePort
+  port: 8080
+  targetPort: 8080
+  nodePort: 30100

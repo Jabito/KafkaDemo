@@ -27,8 +27,5 @@ mvn package
 # Build image
 docker build -t kafka-demo/spring-boot-admin ../.
 
-# See ../spring-boot-admin.yaml for k8s config
-
-# Apply config
-kubectl apply -f ../spring-boot-admin.yaml
+# See ../helm/spring-boot-admin-chart/README.md for helm deployment
 ```
